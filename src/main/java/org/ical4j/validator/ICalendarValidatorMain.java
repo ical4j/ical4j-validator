@@ -7,7 +7,6 @@ import net.fortuna.ical4j.validate.ValidationReport;
 import net.fortuna.ical4j.validate.ValidationResult;
 
 import java.io.IOException;
-import java.io.OutputStreamWriter;
 import java.io.StringWriter;
 import java.net.URL;
 
