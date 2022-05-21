@@ -11,12 +11,21 @@ repositories {
 }
 
 dependencies {
-    implementation 'javax.servlet:javax.servlet-api:4.0.1',
-            "org.mnode.ical4j:ical4j:$ical4jVersion"
+    implementation "org.mnode.ical4j:ical4j:$ical4jVersion"
 
-    implementation "org.slf4j:slf4j-log4j12:$slf4jVersion",
+    implementation "org.slf4j:slf4j-api:$slf4jVersion",
+            "org.slf4j:slf4j-log4j12:$slf4jVersion",
             "org.apache.logging.log4j:log4j:$log4jVersion"
 
+    implementation ("org.eclipse.jetty:jetty-server:$jettyVersion") {
+        exclude group: 'org.slf4j', module: 'slf4j-api'
+    }
+    implementation ("org.eclipse.jetty:jetty-servlet:$jettyVersion") {
+        exclude group: 'org.slf4j', module: 'slf4j-api'
+    }
+    
+//    implementation 'jakarta.servlet:jakarta.servlet-api:5.0.0'
+    
 //    compileOnly "biz.aQute.bnd:biz.aQute.bndlib:$bndVersion"
     compileOnly 'org.osgi:osgi.core:8.0.0',
             'org.osgi:org.osgi.service.component.annotations:1.5.0',
