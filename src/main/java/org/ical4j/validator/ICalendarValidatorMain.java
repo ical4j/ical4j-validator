@@ -50,10 +50,10 @@ public class ICalendarValidatorMain {
 
             // Create a ServletContextHandler with contextPath.
             ServletContextHandler context = new ServletContextHandler();
-            context.setContextPath("/");
+            context.setContextPath("/validator");
 
             // Add the Servlet implementing the cart functionality to the context.
-            ServletHolder servletHolder = context.addServlet(ICalendarValidatorServlet.class, "/validator");
+            ServletHolder servletHolder = context.addServlet(ICalendarValidatorServlet.class, "/");
 
             // Link the context to the server.
             server.setHandler(context);

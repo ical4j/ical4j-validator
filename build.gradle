@@ -23,9 +23,7 @@ dependencies {
     implementation ("org.eclipse.jetty:jetty-servlet:$jettyVersion") {
         exclude group: 'org.slf4j', module: 'slf4j-api'
     }
-    
-//    implementation 'jakarta.servlet:jakarta.servlet-api:5.0.0'
-    
+
 //    compileOnly "biz.aQute.bnd:biz.aQute.bndlib:$bndVersion"
     compileOnly 'org.osgi:osgi.core:8.0.0',
             'org.osgi:org.osgi.service.component.annotations:1.5.0',
