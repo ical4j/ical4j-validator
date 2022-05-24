@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id "biz.aQute.bnd.builder" version "$bndVersion"
+    id 'pl.allegro.tech.build.axion-release' version '1.13.6'
 }
 
 repositories {
@@ -30,4 +31,12 @@ dependencies {
             'org.osgi:org.osgi.service.metatype.annotations:1.4.1',
             'org.osgi:org.osgi.annotation:6.0.0'
 
+}
+
+scmVersion {
+    tag {
+        prefix = 'ical4j-validator-'
+    }
+    versionCreator 'versionWithBranch'
+    branchVersionCreator = ['main': 'simple']
 }
