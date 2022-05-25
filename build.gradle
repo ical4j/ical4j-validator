@@ -25,6 +25,8 @@ dependencies {
         exclude group: 'org.slf4j', module: 'slf4j-api'
     }
 
+    implementation "info.picocli:picocli:$picocliVersion"
+
 //    compileOnly "biz.aQute.bnd:biz.aQute.bndlib:$bndVersion"
     compileOnly 'org.osgi:osgi.core:8.0.0',
             'org.osgi:org.osgi.service.component.annotations:1.5.0',
