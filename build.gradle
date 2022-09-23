@@ -4,6 +4,7 @@ plugins {
     id 'maven-publish'
     id 'signing'
     id 'pl.allegro.tech.build.axion-release' version '1.13.6'
+    id 'application'
 }
 
 repositories {
@@ -40,6 +41,28 @@ dependencies {
 
 }
 
+scmVersion {
+    tag {
+        prefix = 'ical4j-validator-'
+    }
+    versionCreator 'versionWithBranch'
+    branchVersionCreator = ['main': 'simple']
+}
+
+group = 'org.ical4j'
+description = 'Validation reporting of iCalendar data'
+version = scmVersion.version
+
+jar {
+    manifest {
+        attributes (
+            'Implementation-Title': 'iCal4j Validator',
+            'Implementation-Version': version,
+            'Implementation-Vendor': 'Ben Fortuna'
+        )
+    }
+}
+
 task javadocJar(type: Jar, dependsOn: javadoc) {
     archiveClassifier.set('javadoc')
     from 'build/docs/javadoc'
@@ -55,17 +78,9 @@ artifacts {
     archives sourcesJar
 }
 
-scmVersion {
-    tag {
-        prefix = 'ical4j-validator-'
-    }
-    versionCreator 'versionWithBranch'
-    branchVersionCreator = ['main': 'simple']
+application {
+    mainClass = 'org.ical4j.validator.ICalendarValidatorMain'
 }
-
-group = 'org.ical4j'
-description = 'Validation reporting of iCalendar data'
-version = scmVersion.version
 
 ext {
     isReleaseVersion = !version.endsWith("SNAPSHOT")
