@@ -9,7 +9,8 @@ import org.ical4j.validator.ICalendarValidatorServlet;
 import org.slf4j.LoggerFactory;
 import picocli.CommandLine;
 
-@CommandLine.Command(name = "jetty", description = "Start Jetty service for validation requests")
+@CommandLine.Command(name = "jetty", description = "Start Jetty service for validation requests",
+        subcommands = {CommandLine.HelpCommand.class})
 public class JettyRunCommand implements Runnable{
 
     @Override
