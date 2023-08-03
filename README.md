@@ -2,6 +2,9 @@
 
 A simple validation service for iCalendar
 
+**NOTE: This library has been merged with ical4j-command and will receive
+no further updates.**
+
 ## Examples
 
 ### Generate validation report
