@@ -16,7 +16,7 @@ import java.net.URL;
         subcommands = {CommandLine.HelpCommand.class})
 public class ValidationReportCommand implements Runnable {
 
-    @CommandLine.Option(names = {"-X", "--format"})
+    @CommandLine.Option(names = {"-X", "--format"}, defaultValue = "TEXT")
     private ValidationReport.Format reportFormat;
 
     @CommandLine.ArgGroup(exclusive = true, multiplicity = "1")
@@ -48,7 +48,7 @@ public class ValidationReportCommand implements Runnable {
             ValidationResult result = cal.validate();
             if (result.hasErrors()) {
                 StringWriter out = new StringWriter();
-                new ValidationReport(ValidationReport.Format.TEXT).output(result, out);
+                new ValidationReport(reportFormat).output(result, out);
                 System.out.print(out);
             } else {
                 System.out.print("No errors.");
